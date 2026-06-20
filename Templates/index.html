@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Disease Predictor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen">
+
+<div class="bg-gray-800 p-8 rounded-2xl shadow-xl w-full max-w-2xl">
+
+    <h1 class="text-3xl font-bold text-center mb-6 text-red-400">
+        Heart Disease Prediction
+    </h1>
+
+    <form action="/predict" method="POST" class="grid grid-cols-2 gap-4">
+
+        <input name="age" placeholder="Age" class="p-2 rounded bg-gray-700" required>
+        <input name="sex" placeholder="Sex (1/0)" class="p-2 rounded bg-gray-700" required>
+
+        <input name="cp" placeholder="Chest Pain Type" class="p-2 rounded bg-gray-700" required>
+        <input name="trestbps" placeholder="Rest BP" class="p-2 rounded bg-gray-700" required>
+
+        <input name="chol" placeholder="Cholesterol" class="p-2 rounded bg-gray-700" required>
+        <input name="fbs" placeholder="Fasting Blood Sugar" class="p-2 rounded bg-gray-700" required>
+
+        <input name="restecg" placeholder="Rest ECG" class="p-2 rounded bg-gray-700" required>
+        <input name="thalach" placeholder="Max Heart Rate" class="p-2 rounded bg-gray-700" required>
+
+        <input name="exang" placeholder="Exercise Angina" class="p-2 rounded bg-gray-700" required>
+        <input name="oldpeak" placeholder="ST Depression" class="p-2 rounded bg-gray-700" required>
+
+        <input name="slope" placeholder="Slope" class="p-2 rounded bg-gray-700" required>
+        <input name="ca" placeholder="Major Vessels" class="p-2 rounded bg-gray-700" required>
+
+        <input name="thal" placeholder="Thal" class="p-2 rounded bg-gray-700" required>
+
+        <button type="submit"
+            class="col-span-2 bg-red-500 hover:bg-red-600 p-3 rounded-lg font-bold mt-4">
+            Predict
+        </button>
+    </form>
+
+    {% if prediction_text %}
+        <div class="mt-6 text-center text-xl font-semibold text-green-400">
+            {{ prediction_text }}
+        </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
